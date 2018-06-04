@@ -10,7 +10,7 @@ export const navItems = [
   },
   {
     title: true,
-    name: 'Theme'
+    name: 'Comixtorm'
   },
   {
     name: 'Colors',
