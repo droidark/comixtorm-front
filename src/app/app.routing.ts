@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import {AuthGuardService} from './auth-guard.service';
+import {CollectionModule} from './views/collection/collection.module';
 
 export const routes: Routes = [
   {
@@ -83,6 +84,10 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
+      },
+      {
+        path: 'collection',
+        loadChildren: './views/collection/collection.module#CollectionModule'
       }
     ]
   }

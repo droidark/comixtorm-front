@@ -13,10 +13,15 @@ export const navItems = [
     name: 'Comixtorm'
   },
   {
-    name: 'Colors',
-    url: '/theme/colors',
+    name: 'Collection',
+    url: '/collection',
     icon: 'icon-drop'
   },
+  // {
+  //   name: 'Colors',
+  //   url: '/theme/colors',
+  //   icon: 'icon-drop'
+  // },
   {
     name: 'Typography',
     url: '/theme/typography',
