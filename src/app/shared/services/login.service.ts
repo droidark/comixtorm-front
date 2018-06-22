@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 import {environment} from '../../../environments/environment';
-import {Token} from '../model/token/token.model';
+import {Token} from '../model/token.model';
 import {Router} from '@angular/router';
 
 @Injectable({

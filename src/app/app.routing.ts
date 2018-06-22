@@ -88,6 +88,10 @@ export const routes: Routes = [
       {
         path: 'collection',
         loadChildren: './views/collection/collection.module#CollectionModule'
+      },
+      {
+        path: 'search',
+        loadChildren: './views/search/search.module#SearchModule'
       }
     ]
   }

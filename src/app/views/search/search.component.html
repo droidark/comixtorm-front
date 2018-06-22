@@ -1,0 +1,23 @@
+<div class="animated fadeIn">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="input-group">
+      <select
+        class="form-control col-sm-2"
+        id="filter"
+        name="filter"
+        ngModel>
+        <option value="title_name">Nombre</option>
+        <option value="title_event">Evento</option>
+        <option value="story_arch">Arco argumental</option>
+      </select>
+      <input
+        type="text"
+        class="form-control"
+        id="search"
+        name="search"
+        ngModel
+        placeholder="Search term...">
+      <button class="btn btn-square" type="submit">Search</button>
+    </div>
+  </form>
+</div>

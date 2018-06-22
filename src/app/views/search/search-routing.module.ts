@@ -1,14 +1,13 @@
 import {RouterModule, Routes} from '@angular/router';
+import {SearchComponent} from './search.component';
 import {NgModule} from '@angular/core';
-
-import {CollectionComponent} from './collection.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CollectionComponent,
+    component: SearchComponent,
     data: {
-      title: 'Collection'
+      title: 'Search'
     }
   }
 ];
@@ -17,4 +16,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CollectionRoutingModule { }
+export class SearchRoutingModule {
+
+}

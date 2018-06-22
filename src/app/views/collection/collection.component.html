@@ -1,0 +1,11 @@
+<div class="animated fadeIn">
+  <button class="btn btn-success btn-lg btn-block">Add comic to collection</button>
+  <div class="card" *ngFor="let title of comicCollection">
+    <img class="card-img-top" [src]="title.avatar" [alt]="title.name">
+    <div class="card-body">
+      <h4 class="card-title">{{title.name}}</h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">{{title.publisher.vanity}}</a>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,15 @@
 import {NgModule} from '@angular/core';
-import {CollectionListComponent} from './collection-list.component';
+import {CollectionComponent} from './collection.component';
 import {CollectionRoutingModule} from './collection-routing.module';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
+    CommonModule,
     CollectionRoutingModule
   ],
   declarations: [
-    CollectionListComponent
+    CollectionComponent
   ]
 })
 export class CollectionModule { }

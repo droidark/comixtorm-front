@@ -17,11 +17,16 @@ export const navItems = [
     url: '/collection',
     icon: 'icon-drop'
   },
-  // {
-  //   name: 'Colors',
-  //   url: '/theme/colors',
-  //   icon: 'icon-drop'
-  // },
+  {
+    name: 'Search',
+    url: '/search',
+    icon: 'icon-drop'
+  },
+  {
+    name: 'Colors',
+    url: '/theme/colors',
+    icon: 'icon-drop'
+  },
   {
     name: 'Typography',
     url: '/theme/typography',
@@ -219,7 +224,7 @@ export const navItems = [
         icon: 'icon-star'
       }
     ]
-  },
+  }/*,
   {
     name: 'Download CoreUI',
     url: 'http://coreui.io/angular/',
@@ -232,5 +237,5 @@ export const navItems = [
     url: 'http://coreui.io/pro/angular/',
     icon: 'icon-layers',
     variant: 'danger'
-  }
+  }*/
 ];

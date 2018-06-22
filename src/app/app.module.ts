@@ -42,6 +42,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {LoginService} from './shared/services/login.service';
+import {UserService} from './shared/services/user.service';
+import {SearchService} from './shared/services/search.service';
 
 @NgModule({
   imports: [
@@ -70,7 +72,11 @@ import {LoginService} from './shared/services/login.service';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }, LoginService],
+  },
+    LoginService,
+    SearchService,
+    UserService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
