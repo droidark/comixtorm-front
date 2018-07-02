@@ -6,8 +6,9 @@
         id="filter"
         name="filter"
         ngModel>
-        <option value="title_name">Nombre</option>
-        <option value="title_event">Evento</option>
+        <option value="" disabled selected>Select your option</option>
+        <option value="name">Nombre</option>
+        <option value="event">Evento</option>
         <option value="story_arch">Arco argumental</option>
       </select>
       <input
@@ -20,4 +21,20 @@
       <button class="btn btn-square" type="submit">Search</button>
     </div>
   </form>
+  <hr/>
+  <div class="row">
+    <ng-container *ngIf="!isEmpty;else no_result">
+      <div class="col-md-3" *ngFor="let issue of issues">
+        <div class="card">
+          <img class="card-img-top" [src]="issue.covers[0].coverImageUrl" [alt]="issue.name">
+          <div class="card-body">
+            <h5 class="card-title">{{ issue.name }}</h5>
+            <p class="card-text">{{ issue.shortReview }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #no_result>No hay resultados que coincidan con la busqueda</ng-template>
+  </div>
 </div>

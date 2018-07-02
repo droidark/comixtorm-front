@@ -3,6 +3,7 @@ import {SearchComponent} from './search.component';
 import {SearchRoutingModule} from './search-routing.module';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BsDropdownModule.forRoot(),
+    CommonModule,
     FormsModule,
     SearchRoutingModule
   ]

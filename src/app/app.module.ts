@@ -43,7 +43,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {LoginService} from './shared/services/login.service';
 import {UserService} from './shared/services/user.service';
-import {SearchService} from './shared/services/search.service';
+import {IssueService} from './shared/services/issue.service';
 
 @NgModule({
   imports: [
@@ -73,8 +73,8 @@ import {SearchService} from './shared/services/search.service';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   },
+    IssueService,
     LoginService,
-    SearchService,
     UserService
   ],
   bootstrap: [ AppComponent ]
