@@ -26,11 +26,20 @@
     <ng-container *ngIf="!isEmpty;else no_result">
       <div class="col-md-3" *ngFor="let issue of issues">
         <div class="card">
-          <img class="card-img-top" [src]="issue.covers[0].coverImageUrl" [alt]="issue.name">
+          <img class="card-img-top"
+               [ngClass]="{'no-collected': issue.collected == false}"
+               [src]="issue.covers[0].coverImageUrl"
+               [alt]="issue.name">
           <div class="card-body">
             <h5 class="card-title">{{ issue.name }}</h5>
             <p class="card-text">{{ issue.shortReview }}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <button
+              type="button"
+              class="btn btn-square btn-block"
+              [ngClass]="{'btn-danger': issue.collected == true, 'btn-success': issue.collected == false}"
+              (click)="addToCollection(issue.title.id, issue.id, issue.covers[0].id)">
+                {{ issue.collected ? 'Eliminar' : 'Agregar' }}
+            </button>
           </div>
         </div>
       </div>

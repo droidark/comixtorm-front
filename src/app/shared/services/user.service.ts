@@ -2,7 +2,7 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
-import {Title} from '../model/Title';
+import {Title} from '../model/title.model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -21,8 +21,14 @@ export class UserService implements OnInit {
       'Authorization': localStorage.getItem('token')
     });
     return this.http.get<Title[]>(url, {headers: headers});
-    // this.http.get(url, {headers: headers}).subscribe((data: Title[]) => {
-    //   return data;
-    // });
+  }
+
+  saveIssueToCollection(title: Title): Observable<any> {
+    const url = environment.apiEndpoint + '/user/add';
+    const headers =  new HttpHeaders({
+      'Authorization': localStorage.getItem('token'),
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(url, title, {headers: headers});
   }
 }

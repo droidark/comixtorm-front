@@ -1,5 +1,6 @@
-import {Title} from './Title';
+import {Title} from './title.model';
 import {Profile} from './profile.model';
+import {UserSocialNetwork} from './user-social-network.model';
 
 export class User {
   id: number;
@@ -12,4 +13,5 @@ export class User {
   status: string;
   profiles: Profile[];
   titles: Title[];
+  userSocialNetworks: UserSocialNetwork[];
 }

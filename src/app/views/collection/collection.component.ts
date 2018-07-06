@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../shared/services/user.service';
-import {Title} from '../../shared/model/Title';
+import {Title} from '../../shared/model/title.model';
 
 @Component({
   templateUrl: 'collection.component.html'
