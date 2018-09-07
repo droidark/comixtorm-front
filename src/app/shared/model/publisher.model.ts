@@ -1,4 +1,5 @@
 import {Title} from './title.model';
+import {PublisherSocialNetwork} from './publisher-social-network.model';
 
 export class Publisher {
   id: number;
@@ -8,4 +9,5 @@ export class Publisher {
   logo: string;
   information: string;
   titles: Title[];
+  publisherSocialNetwork: PublisherSocialNetwork[];
 }

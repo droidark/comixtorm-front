@@ -5,6 +5,8 @@ import {Issue} from '../../shared/model/issue.model';
 import {UserService} from '../../shared/services/user.service';
 import {Title} from '../../shared/model/title.model';
 import {Cover} from '../../shared/model/cover.model';
+import {User} from '../../shared/model/user.model';
+import {Publisher} from '../../shared/model/publisher.model';
 
 @Component({
   templateUrl: 'search.component.html',
@@ -17,8 +19,10 @@ export class SearchComponent {
 
   constructor(private issueService: IssueService, private userService: UserService) {}
 
-  addToCollection(titleId: number, issueId: number, coverId: number) {
+  addToCollection(publisherId: number, titleId: number, issueId: number, coverId: number, index: number) {
+    const publisher: Publisher = new Publisher();
     const title: Title = new Title();
+    const titles: Title[] = [];
     const issue: Issue = new Issue();
     const issues: Issue[] = [];
     const cover: Cover = new Cover();
@@ -30,7 +34,15 @@ export class SearchComponent {
     issues.push(issue);
     title.id = titleId;
     title.issues = issues;
-    this.userService.saveIssueToCollection(title).subscribe();
+    titles.push(title);
+    publisher.id = publisherId;
+    publisher.titles = titles;
+    if(this.issues[index].collected) {
+      this.userService.saveIssueToCollection(publisher).subscribe();
+    } else {
+      this.userService.deleteIssueToCollection(publisher).subscribe();
+    }
+    this.issues[index].collected = !this.issues[index].collected;
   }
 
   onSubmit() {
