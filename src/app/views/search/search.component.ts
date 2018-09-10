@@ -37,12 +37,12 @@ export class SearchComponent {
     titles.push(title);
     publisher.id = publisherId;
     publisher.titles = titles;
-    if(this.issues[index].collected) {
+    this.issues[index].collected = !this.issues[index].collected;
+    if (this.issues[index].collected) {
       this.userService.saveIssueToCollection(publisher).subscribe();
     } else {
       this.userService.deleteIssueToCollection(publisher).subscribe();
     }
-    this.issues[index].collected = !this.issues[index].collected;
   }
 
   onSubmit() {

@@ -36,11 +36,6 @@ export class UserService implements OnInit {
 
   deleteIssueToCollection(publisher: Publisher): Observable<any> {
     const url = environment.apiEndpoint + '/user/delete';
-    const headers =  new HttpHeaders({
-      'Authorization': localStorage.getItem('token'),
-      'Content-Type': 'application/json'
-    });
-
     return this.http.request('DELETE', url, {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('token'),
