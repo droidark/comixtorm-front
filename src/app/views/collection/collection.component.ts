@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../shared/services/user.service';
-import {Title} from '../../shared/model/title.model';
 import {Publisher} from '../../shared/model/publisher.model';
 
 @Component({
@@ -8,7 +7,6 @@ import {Publisher} from '../../shared/model/publisher.model';
 })
 export class CollectionComponent implements OnInit {
   publishers: Publisher[];
-  comicCollection: Publisher[];
 
   constructor(private userService: UserService) { }
 
@@ -17,6 +15,4 @@ export class CollectionComponent implements OnInit {
       this.publishers = data;
     });
   }
-
-
 }

@@ -92,6 +92,18 @@ export const routes: Routes = [
       {
         path: 'search',
         loadChildren: './views/search/search.module#SearchModule'
+      },
+      {
+        path: ':publisher',
+        loadChildren: './views/publisher/publisher.module#PublisherModule'
+      },
+      {
+        path: ':publisher/:title',
+        loadChildren: './views/title/title.module#TitleModule'
+      },
+      {
+        path: ':publisher/:title/:issue',
+        loadChildren: './views/issue/issue.module#IssueModule'
       }
     ]
   }

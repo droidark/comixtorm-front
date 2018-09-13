@@ -3,12 +3,13 @@
   <br>
   <div class="card" *ngFor="let publisher of publishers">
     <div class="card-header">{{publisher.name}}</div>
-    <div class="card-body">
-      <div class="card" *ngFor="let title of publisher.titles" style="width: 18rem">
-        <img class="card-img-top" [src]="title.avatar" [alt]="title.name" style="width: 18rem; height: 28rem">
-        <div class="card-body">
-          <h5 class="card-title">{{title.name}}</h5>
-          <a href="#" class="btn btn-primary">View title details</a>
+    <div class="card-group">
+      <div class="card" *ngFor="let title of publisher.titles">
+          <img class="card-img-top" [src]="title.avatar" [alt]="title.name">
+          <div class="card-body">
+            <h5 class="card-title">{{title.name}}</h5>
+            <a [routerLink]="['/' + publisher.vanity + '/' + title.vanity]"
+               class="btn btn-primary">View details</a>
         </div>
       </div>
     </div>
