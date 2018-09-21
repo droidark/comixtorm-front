@@ -44,6 +44,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {LoginService} from './shared/services/login.service';
 import {UserService} from './shared/services/user.service';
 import {IssueService} from './shared/services/issue.service';
+import {TitleService} from './shared/services/title.service';
 
 @NgModule({
   imports: [
@@ -75,6 +76,7 @@ import {IssueService} from './shared/services/issue.service';
   },
     IssueService,
     LoginService,
+    TitleService,
     UserService
   ],
   bootstrap: [ AppComponent ]

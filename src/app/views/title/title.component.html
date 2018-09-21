@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <p>{{titleId}}</p>
-</body>
-</html>
+<div class="card flex-row flex-wrap">
+  <div class="card-header border-0">
+    <img [src]="title.avatar" [alt]="title.name" style="width: 15rem; height: 20rem;">
+  </div>
+  <div class="card-block px-2">
+    <h5 class="card-title display-4">{{title.name}}</h5>
+    <p class="card-text">{{title.name}}</p>
+  </div>
+  <div class="w-100"></div>
+</div>
+<div class="row">
+  <div class="col-md-3" *ngFor="let issue of title.issues; index as i">
+    <div class="card">
+      <img class="card-img-top"
+           [ngClass]="{'no-collected': issue.collected == false}"
+           [src]="issue.covers[0].coverImageUrl"
+           [alt]="issue.name">
+      <div class="card-body">
+        <h5 class="card-title">{{ issue.name }}</h5>
+        <p class="card-text">{{ issue.shortReview }}</p>
+        <label class="switch switch-label switch-pill switch-success">
+          <input type="checkbox" class="switch-input" [checked]="issue.collected">
+          <span class="switch-slider" data-checked="&#x2713;" data-unchecked="&#x2715;"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>

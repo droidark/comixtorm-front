@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'http://localhost:8080',
+  apiEndpoint: 'http://10.10.15.12:8080',
   tokenAuthUsername: 'testjwtclientid',
   tokenAuthPassword: 'XY7kmzoNzl100'
 };
