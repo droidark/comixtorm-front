@@ -1,5 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {IssueService} from '../../shared/services/issue.service';
 import {Issue} from '../../shared/model/issue.model';
 import {UserService} from '../../shared/services/user.service';
@@ -12,12 +12,19 @@ import {Publisher} from '../../shared/model/publisher.model';
   templateUrl: 'search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
-  @ViewChild('f') searchForm: NgForm;
+export class SearchComponent implements OnInit {
+  searchForm: FormGroup;
   issues: Issue[];
   isEmpty = true;
 
   constructor(private issueService: IssueService, private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.searchForm = new FormGroup({
+      'filter': new FormControl(null, Validators.required),
+      'search': new FormControl(null, Validators.required)
+    });
+  }
 
   addToCollection(publisherId: number, titleId: number, issueId: number, coverId: number, index: number) {
     const publisher: Publisher = new Publisher();

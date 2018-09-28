@@ -5,6 +5,7 @@ import {Publisher} from './publisher.model';
 export class User {
   id: number;
   username: string;
+  password: string;
   email: string;
   avatar: string;
   cover: string;

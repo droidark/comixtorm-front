@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from '../../shared/services/login.service';
 import 'rxjs/add/operator/map';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +9,18 @@ import 'rxjs/add/operator/map';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('loginForm') loginForm: NgForm;
+  loginForm: FormGroup;
 
   constructor(private loginService: LoginService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      'username': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required)
+    });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.loginService.loginUser(this.loginForm.value.username, this.loginForm.value.password);
   }
 }

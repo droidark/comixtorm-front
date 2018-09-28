@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -45,6 +45,7 @@ import {LoginService} from './shared/services/login.service';
 import {UserService} from './shared/services/user.service';
 import {IssueService} from './shared/services/issue.service';
 import {TitleService} from './shared/services/title.service';
+import {RegisterService} from './shared/services/register.service';
 
 @NgModule({
   imports: [
@@ -55,7 +56,7 @@ import {TitleService} from './shared/services/title.service';
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
@@ -76,6 +77,7 @@ import {TitleService} from './shared/services/title.service';
   },
     IssueService,
     LoginService,
+    RegisterService,
     TitleService,
     UserService
   ],
