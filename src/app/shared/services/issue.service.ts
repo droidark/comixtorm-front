@@ -20,4 +20,12 @@ export class IssueService implements OnInit {
     });
     return this.http.get<Issue[]>(url, {headers: headers});
   }
+
+  findIssueByVanityAndTitle(publisherVanity: string, titleVanity: string, issueVanity: string): Observable<Issue> {
+    const url = environment.apiEndpoint + '/issue/search/' + publisherVanity + '/' + titleVanity + '/' + issueVanity;
+    const headers =  new HttpHeaders({
+      'Authorization': localStorage.getItem('token')
+    });
+    return this.http.get<Issue>(url, {headers: headers});
+  }
 }

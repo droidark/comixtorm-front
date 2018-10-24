@@ -27,29 +27,9 @@ export class SearchComponent implements OnInit {
   }
 
   addToCollection(publisherId: number, titleId: number, issueId: number, coverId: number, index: number) {
-    const publisher: Publisher = new Publisher();
-    const title: Title = new Title();
-    const titles: Title[] = [];
-    const issue: Issue = new Issue();
-    const issues: Issue[] = [];
-    const cover: Cover = new Cover();
-    const covers: Cover[] = [];
-    cover.id = coverId;
-    covers.push(cover);
-    issue.id = issueId;
-    issue.covers = covers;
-    issues.push(issue);
-    title.id = titleId;
-    title.issues = issues;
-    titles.push(title);
-    publisher.id = publisherId;
-    publisher.titles = titles;
     this.issues[index].collected = !this.issues[index].collected;
-    if (this.issues[index].collected) {
-      this.userService.saveIssueToCollection(publisher).subscribe();
-    } else {
-      this.userService.deleteIssueToCollection(publisher).subscribe();
-    }
+    this.userService.saveOrDeleteIssueToCollection(
+      publisherId, titleId, issueId, coverId, this.issues[index].collected).subscribe();
   }
 
   onSubmit() {

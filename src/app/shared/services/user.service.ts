@@ -6,6 +6,8 @@ import {Title} from '../model/title.model';
 import {Observable} from 'rxjs';
 import {Publisher} from '../model/publisher.model';
 import {RequestOptions} from '@angular/http';
+import {Issue} from '../model/issue.model';
+import {Cover} from '../model/cover.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +27,7 @@ export class UserService implements OnInit {
     return this.http.get<Publisher[]>(url, {headers: headers});
   }
 
-  saveIssueToCollection(publisher: Publisher): Observable<any> {
+  private saveIssueToCollection(publisher: Publisher): Observable<any> {
     const url = environment.apiEndpoint + '/user/add';
     const headers =  new HttpHeaders({
       'Authorization': localStorage.getItem('token'),
@@ -34,7 +36,7 @@ export class UserService implements OnInit {
     return this.http.post(url, publisher, {headers: headers});
   }
 
-  deleteIssueToCollection(publisher: Publisher): Observable<any> {
+  private deleteIssueToCollection(publisher: Publisher): Observable<any> {
     const url = environment.apiEndpoint + '/user/delete';
     return this.http.request('DELETE', url, {
       headers: new HttpHeaders({
@@ -43,5 +45,34 @@ export class UserService implements OnInit {
       }),
       body: publisher
     });
+  }
+
+  saveOrDeleteIssueToCollection(
+    publisherId: number,
+    titleId: number,
+    issueId: number,
+    coverId: number,
+    collected: boolean): Observable<any> {
+    const publisher: Publisher = new Publisher();
+    const title: Title = new Title();
+    const titles: Title[] = [];
+    const issue: Issue = new Issue();
+    const issues: Issue[] = [];
+    const cover: Cover = new Cover();
+    const covers: Cover[] = [];
+    cover.id = coverId;
+    covers.push(cover);
+    issue.id = issueId;
+    issue.covers = covers;
+    issues.push(issue);
+    title.id = titleId;
+    title.issues = issues;
+    titles.push(title);
+    publisher.id = publisherId;
+    publisher.titles = titles;
+    if (collected) {
+      return this.saveIssueToCollection(publisher);
+    }
+    return this.deleteIssueToCollection(publisher);
   }
 }
